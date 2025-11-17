@@ -36,13 +36,13 @@ const features = [
 
 const testimonials = [
   {
-    name: "Priya Sharma",
+    name: "Subratjit Jena",
     role: "Hostel Resident",
     quote:
       "This platform simplified reporting complaints. Resolution is quick and transparent.",
   },
   {
-    name: "Ravi Mishra",
+    name: "Tapas Ranjan Misra",
     role: "Warden",
     quote: "The dashboards make managing issues efficient and straightforward.",
   },

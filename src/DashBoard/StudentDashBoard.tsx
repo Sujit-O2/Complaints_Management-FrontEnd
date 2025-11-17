@@ -645,7 +645,7 @@ const StudentDashboard: React.FC = () => {
               <div className="bg-white/80 backdrop-blur-md shadow-xl border border-gray-200 p-8 rounded-3xl max-w-xl w-full transition-transform hover:scale-[1.01]">
                 <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl px-6 py-4 mb-6 shadow-md text-center">
                   <h2 className="text-3xl font-bold tracking-wide">
-                    📃 New Complaint
+                     📄New Complaint
                   </h2>
                   <p className="text-sm text-blue-100 mt-1">
                     Tell us what’s bothering you — we’ll take care of it

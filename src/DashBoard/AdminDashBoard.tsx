@@ -287,6 +287,32 @@ const AdminDashboard: React.FC = () => {
     }
   };
 
+  // Delete complaint (for resolved or rejected)
+  const handleDeleteComplaint = async (id: number) => {
+    if (!window.confirm("Are you sure you want to delete this complaint?")) return;
+    setOverlayMessage("Deleting complaint...");
+    try {
+      const res = await fetch(`http://localhost:8080/admin/complaints/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (res.ok) {
+        setOverlayMessage("Complaint deleted.");
+        setTimeout(() => {
+          setOverlayMessage(null);
+          fetchComplaints();
+          fetchStats();
+        }, 1200);
+      } else {
+        alert("Failed to delete complaint.");
+        setOverlayMessage(null);
+      }
+    } catch (err) {
+      console.error(err);
+      setOverlayMessage(null);
+    }
+  };
+
   // Delete user
   const handleDeleteUser = async (regNo: string) => {
     if (!window.confirm("Delete this user?")) return;
@@ -679,7 +705,7 @@ const AdminDashboard: React.FC = () => {
                         key={c.id}
                         className="border border-gray-200 rounded-lg p-4 hover:bg-green-50 transition"
                       >
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center gap-2">
                           <h3 className="text-lg font-semibold">{c.title}</h3>
                           <span
                             className={`text-sm px-3 py-1 rounded-full ${
@@ -701,6 +727,15 @@ const AdminDashboard: React.FC = () => {
                           >
                             <Edit className="w-5 h-5" />
                           </button>
+                          {["Resolved", "Rejected"].includes(c.status) && (
+                            <button
+                              className="p-2 text-red-600 hover:text-red-800"
+                              onClick={() => handleDeleteComplaint(c.id)}
+                              title="Delete"
+                            >
+                              <Trash2 className="w-5 h-5" />
+                            </button>
+                          )}
                         </div>
                         <p className="text-gray-600">
                           <strong>Response:</strong>{" "}
