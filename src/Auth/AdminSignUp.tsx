@@ -18,7 +18,7 @@ const AdminSignupPage = () => {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:8080/user/signup", {
+      const res = await fetch("https://complaints-management-backend.onrender.com/user/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

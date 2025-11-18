@@ -31,8 +31,8 @@ const AuthPage = () => {
 
     try {
       const url = isSignup
-        ? "http://localhost:8080/user/signup"
-        : "http://localhost:8080/user/login";
+        ? "https://complaints-management-backend.onrender.com/user/signup"
+        : "https://complaints-management-backend.onrender.com/user/login";
 
       const body = isSignup
         ? { username: fullName, email: email.trim(), password: password.trim(), regiNo: regNo.trim(), role: "student" }
