@@ -167,7 +167,7 @@ const StudentDashboard: React.FC = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/stats", {
+      const res = await fetch("http://localhost:8080/user/stats", {
         credentials: "include",
       });
       if (res.ok) {
@@ -181,7 +181,7 @@ const StudentDashboard: React.FC = () => {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/complaints", {
+      const res = await fetch("http://localhost:8080/user/complaints", {
         credentials: "include",
       });
       if (res.ok) {
@@ -195,7 +195,7 @@ const StudentDashboard: React.FC = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/profile", {
+      const res = await fetch("http://localhost:8080/user/profile", {
         credentials: "include",
       });
       if (res.ok) {
@@ -213,7 +213,7 @@ const StudentDashboard: React.FC = () => {
     setLoading(true);
     setOverlayMessage("Submitting complaint...");
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/complaints", {
+      const res = await fetch("http://localhost:8080/user/complaints", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -243,7 +243,7 @@ const StudentDashboard: React.FC = () => {
   const handleLogout = async () => {
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (!confirmLogout) return;
-    await fetch("https://complaints-management-backend.onrender.com/user/logout", { credentials: "include" });
+    await fetch("http://localhost:8080/user/logout", { credentials: "include" });
     window.location.href = "/";
   };
 
@@ -251,7 +251,7 @@ const StudentDashboard: React.FC = () => {
     e.preventDefault();
     setOverlayMessage("Updating profile...");
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/profile", {
+      const res = await fetch("http://localhost:8080/user/profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -283,7 +283,7 @@ const StudentDashboard: React.FC = () => {
       return;
     }
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/changePassword", {
+      const res = await fetch("http://localhost:8080/user/changePassword", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
