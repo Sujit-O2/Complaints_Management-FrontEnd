@@ -53,7 +53,7 @@ const AuthPage = () => {
       } else {
         setMessage("✅ Login successful!");
 
-        const role = await res.text();
+        const role = getCookie("role");
 console.log("ROLE FROM BACKEND:", role);
 
 
