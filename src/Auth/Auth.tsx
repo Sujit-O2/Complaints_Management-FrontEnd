@@ -17,6 +17,10 @@ const AuthPage = () => {
     setIsSignup(!isSignup);
     setMessage("");
   };
+    const getCookie = (name: string) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  };
 
 
 
@@ -49,12 +53,8 @@ const AuthPage = () => {
       } else {
         setMessage("✅ Login successful!");
 
-const role = document.cookie
-  .split("; ")
-  .find(row => row.startsWith("role="))
-  ?.split("=")[1];
-
-console.log("ROLE:", role);
+const role = getCookie("role");
+        console.log(role);
 
 
 
