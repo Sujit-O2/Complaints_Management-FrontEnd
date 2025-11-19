@@ -31,8 +31,8 @@ const AuthPage = () => {
 
     try {
       const url = isSignup
-        ? "https://complaints-management-backend.onrender.com/user/signup"
-        : "https://complaints-management-backend.onrender.com/user/login";
+        ? `${import.meta.env.VITE_API_URL}/user/signup`
+        : `${import.meta.env.VITE_API_URL}/user/login`;
 
       const body = isSignup
         ? { username: fullName, email: email.trim(), password: password.trim(), regiNo: regNo.trim(), role: "student" }
@@ -53,7 +53,7 @@ const AuthPage = () => {
       } else {
         setMessage("✅ Login successful!");
 
-        const role = getCookie("role");
+        const role =  getCookie("role");
 console.log("ROLE FROM BACKEND:", role);
 
 

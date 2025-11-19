@@ -18,7 +18,7 @@ const AdminSignupPage = () => {
     setMessage("");
 
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/signup", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

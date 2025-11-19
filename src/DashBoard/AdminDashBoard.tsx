@@ -185,7 +185,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/admin/stats", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/stats`, {
         credentials: "include",
       });
       if (res.ok) {
@@ -199,7 +199,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/admin/complaints", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/complaints`, {
         credentials: "include",
       });
       if (res.ok) {
@@ -213,7 +213,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/admin/users", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/users`, {
         credentials: "include",
       });
       if (res.ok) {
@@ -227,7 +227,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/profile", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/profile`, {
         credentials: "include",
       });
       if (res.ok) {
@@ -257,7 +257,7 @@ const AdminDashboard: React.FC = () => {
     setOverlayMessage("Updating complaint...");
 
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/admin/complaints/update", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/complaints/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -292,7 +292,7 @@ const AdminDashboard: React.FC = () => {
     if (!window.confirm("Are you sure you want to delete this complaint?")) return;
     setOverlayMessage("Deleting complaint...");
     try {
-      const res = await fetch(`https://complaints-management-backend.onrender.com/admin/complaints/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/complaints/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -318,7 +318,7 @@ const AdminDashboard: React.FC = () => {
     if (!window.confirm("Delete this user?")) return;
     setOverlayMessage("Deleting user...");
     try {
-      const res = await fetch(`https://complaints-management-backend.onrender.com/admin/users/${regNo}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/users/${regNo}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -343,7 +343,7 @@ const AdminDashboard: React.FC = () => {
     e.preventDefault();
     setOverlayMessage("Updating profile...");
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/profile", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/profile`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -379,7 +379,7 @@ const AdminDashboard: React.FC = () => {
       return;
     }
     try {
-      const res = await fetch("https://complaints-management-backend.onrender.com/user/changePassword", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/changePassword`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -616,7 +616,7 @@ const AdminDashboard: React.FC = () => {
             <button
               onClick={() => {
                 if (!window.confirm("Are you sure you want to logout?")) return;
-                fetch("http://localhost:8080/user/logout", { credentials: "include" });
+                fetch("${import.meta.env.VITE_API_URL}/user/logout", { credentials: "include" });
                 window.location.href = "/";
               }}
               className="p-2 rounded-full hover:bg-gray-100 text-red-600"
