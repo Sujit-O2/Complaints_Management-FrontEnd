@@ -49,8 +49,12 @@ const AuthPage = () => {
       } else {
         setMessage("✅ Login successful!");
 
-        const role = await res.text();
-console.log("ROLE FROM BACKEND:", role);
+const role = document.cookie
+  .split("; ")
+  .find(row => row.startsWith("role="))
+  ?.split("=")[1];
+
+console.log("ROLE:", role);
 
 
 
