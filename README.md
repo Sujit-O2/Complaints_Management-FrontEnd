@@ -1,73 +1,164 @@
-# React + TypeScript + Vite
+🌐✨ Complaint Management System — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smart, fast & secure platform to submit, track, and manage complaints
+Built with ⚡ React + Vite · 🔐 JWT Auth · 🎨 Modern UI
 
-Currently, two official plugins are available:
+👇 Live App
+🔗 https://complaints-management-front-end.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+🚀 Sleek • Fast • Secure
 
-## React Compiler
+🌈 A smooth user experience with powerful admin controls.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
+🎯 Core Features
 
-## Expanding the ESLint configuration
+✨ For Users
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+📝 Submit complaints instantly
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🔎 Track complaint status live
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+👤 Manage your own profile
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔐 Secure login with JWT
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🛡️ For Admins
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📂 View all complaints
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🟡 Update status (Pending → In-Progress → Resolved)
+
+🧮 Dashboard insights
+
+👥 Manage users
+
+🧠 System
+
+🛣️ Protected Routes
+
+⚡ Ultra-fast Vite build
+
+📡 Integrated with Spring Boot API
+
+📱 Fully responsive
+
+🧩 Tech Stack
+🎨 Frontend
+Tech	Purpose
+⚛️ React (Vite)	UI Framework
+🧭 React Router	Navigation
+📡 Axios	API calls
+🌀 Context API	Auth management
+🎨 Tailwind / CSS	Styling
+🔐 JWT	Authentication
+🖥 Backend (Connected)
+Tech	Purpose
+☕ Spring Boot	REST API
+💾 MySQL	Database
+🛡 Spring Security	Authorization
+🔑 JWT	Token Security
+📁 Project Structure
+src/
+│── assets/            # images/icons
+│── components/        # reusable UI parts
+│── pages/             # main screens
+│── services/          # api + axios wrapper
+│── context/           # auth state
+│── utils/             # helper functions
+│── App.jsx
+│── main.jsx
+
+⚙️ Setup & Installation
+🧪 1️⃣ Clone the Repo
+git clone https://github.com/your-username/complaints-management-front-end.git
+
+📦 2️⃣ Install Dependencies
+npm install
+
+🔐 3️⃣ Add Environment Variables
+
+Create .env:
+
+VITE_API_URL=https://your-backend-url.com
+VITE_APP_NAME=Complaint Management
+
+🚀 4️⃣ Run the Project
+npm run dev
+
+
+Your local dev server is live at:
+🌍 http://localhost:5173
+
+🔐 Authentication Workflow (Smooth & Secure)
+
+🔑 User logs in → receives JWT Token
+
+💾 Token saved in localStorage
+
+🛰 Axios interceptor attaches token to every request
+
+🚪 Protected routes verify:
+
+👤 USER → user dashboard
+
+🛡 ADMIN → admin panel
+
+❌ Invalid token → auto logout
+
+🔗 API Endpoints Used
+🔑 Auth
+POST /auth/login  
+POST /auth/register
+
+📝 User
+POST /complaints
+GET  /complaints/my
+
+🛡 Admin
+GET  /admin/complaints
+PUT  /admin/status/{id}
+
+🎨 UI Preview (Add Screenshots Later)
+🌟 Dashboard  
+📝 Complaint Form  
+🛡 Admin Panel  
+🔐 Login & Register  
+
+🚀 Deployment (Vercel – Super Easy)
+
+1️⃣ Push code → GitHub
+2️⃣ Open Vercel → New Project
+3️⃣ Select Repo
+4️⃣ Add environment variables
+5️⃣ Deploy 💨
+
+Vercel handles:
+✔ Auto build
+✔ Global CDN
+✔ Lightning speed
+
+🌟 Upcoming Enhancements
+
+🔔 Real-time notification system
+
+📊 Advanced analytics for admin
+
+📱 PWA + Mobile App support
+
+📨 Email alerts
+
+🎛 Filters & search for complaints
+
+🤝 Contributing
+
+💡 PRs are welcome!
+Help improve UI, logic, or docs.
+
+🧑‍💻 Developer
+
+👋 Sujit Swain
+🌐 Frontend Live: https://complaints-management-front-end.vercel.app/
+
+📧 sujitswain077@gmail.com
